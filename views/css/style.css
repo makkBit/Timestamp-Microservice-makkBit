@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+
+body {
+  background-color: #444!important;
+}
+
+h1,h3{
+	color:green !important;
+	font-family: 'Bungee', cursive !important;
+}
+
+ol,p{
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 20px;
+	color: black;
+}
+p{
+	font-weight: bold;
+	color:black;
+}
