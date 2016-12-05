@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const moment = require('moment');
 
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -9,16 +10,50 @@ app.get('/', (req,res) =>  {
 });
 
 app.get('/:str', (req,res) => {
-	// let time = new Date(req.params);
-	// console.log(decodeURIComponent(t=req.params));
-	// console.log(Date.parse(time));
-	// res.send("hello");
-	console.log(req.params.str);
-	var value = req.params.str;
-	console.log(new Date(value));
-	var date = new Date(value);
-	console.log(date.getTime());
+
+	const timestampStr = req.params.str;
+
+	let validNatural = (new Date(timestampStr)).getTime() > 0;
+	let validUnix = isNaN(timestampStr);
+
+	if( validNatural || !validUnix){
+		if( !isNaN(timestampStr)){
+			res.json({
+				"unix": timestampStr,
+				"natural": toNaturalDate()
+			});
+		}
+		else{
+			res.json({
+				"unix": toUnixDate(),
+				"natural": timestampStr
+			});
+		}
+	}
+	else {
+		res.json({
+			"unix": null,
+			"natural":null
+		});
+	}
+
+	function toUnixDate(){
+		let date = new Date(timestampStr);
+		return (date.getTime())/1000;
+	};
+
+	function toNaturalDate(){
+		let dateInMili = new Date(timestampStr*1000);
+		var months = ['January','February','March','April','May','June',
+    			  'July','August','September','October','November',
+    			  'December'];
+		return months[dateInMili.getUTCMonth()]+" "+dateInMili.getUTCDate()+", "+
+				  dateInMili.getUTCFullYear();
+	};
 	
+
+
+
 });
 
 app.listen(8080, function(){
