@@ -10,6 +10,9 @@ For <a href="https://www.freecodecamp.com/challenges/timestamp-microservice">Fre
 2. If it does, it returns both the Unix timestamp and the natural language form of that date.
 <br>
 3. If it does not contain a date or Unix timestamp, it returns null for those properties.
+<br>
+
+<i>Made using nodejs, expressjs, pugjs.</i>
 
 <strong>live site:</strong>
 https://timestamp-microservice-makkbit.herokuapp.com/
