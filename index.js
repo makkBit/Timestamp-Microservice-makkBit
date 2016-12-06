@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+var port = process.env.PORT || 8080;
 
 //configures pug
 app.set('views', './views');
@@ -59,6 +60,6 @@ app.get('/:str', (req,res) => {
 	};
 });
 
-app.listen(8080, function(){
-	console.log("app listening on port 8080");
+app.listen(port, function(){
+	console.log("app listening on port: "+port);
 });
