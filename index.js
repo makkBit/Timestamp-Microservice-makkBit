@@ -47,6 +47,7 @@ app.get('/:str', (req,res) => {
 	function toUnixDate(){
 		let date = new Date(timestampStr);
 		date.setDate(date.getDate()+1);
+		//milliseconds to seconds
 		return (date.getTime())/1000;
 	};
 
