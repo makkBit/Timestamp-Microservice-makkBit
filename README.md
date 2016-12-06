@@ -1,8 +1,7 @@
 # Timestamp-Microservice-makkBit
 
-api project 1 
+First API project as a part of freecodecamp back end certification track
 <br>
-freecodecamp back end certification
 <br>
 User Stories:
 <br>
