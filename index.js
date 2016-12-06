@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-var port = process.env.PORT || 8080;
+const port = 8080 || process.env.PORT;
 
 //configures pug
 app.set('views', './views');
