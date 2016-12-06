@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
-const moment = require('moment');
 
+
+//configures pug
 app.set('views', './views');
 app.set('view engine', 'pug');
+
 
 app.get('/', (req,res) =>  {
 	res.render('index');
 });
+
 
 app.get('/:str', (req,res) => {
 
@@ -16,13 +19,16 @@ app.get('/:str', (req,res) => {
 	let validNatural = (new Date(timestampStr)).getTime() > 0;
 	let validUnix = isNaN(timestampStr);
 
+
 	if( validNatural || !validUnix){
+		//the query is unix timestamp
 		if( !isNaN(timestampStr)){
 			res.json({
 				"unix": timestampStr,
 				"natural": toNaturalDate()
 			});
 		}
+		//the query is natural lang
 		else{
 			res.json({
 				"unix": toUnixDate(),
@@ -30,6 +36,7 @@ app.get('/:str', (req,res) => {
 			});
 		}
 	}
+	//the query is neither unix nor natural timestamp
 	else {
 		res.json({
 			"unix": null,
@@ -39,6 +46,7 @@ app.get('/:str', (req,res) => {
 
 	function toUnixDate(){
 		let date = new Date(timestampStr);
+		date.setDate(date.getDate()+1);
 		return (date.getTime())/1000;
 	};
 
@@ -50,11 +58,8 @@ app.get('/:str', (req,res) => {
 		return months[dateInMili.getUTCMonth()]+" "+dateInMili.getUTCDate()+", "+
 				  dateInMili.getUTCFullYear();
 	};
-	
-
-
-
 });
+
 
 app.listen(8080, function(){
 	console.log("app listening on port 8080");
