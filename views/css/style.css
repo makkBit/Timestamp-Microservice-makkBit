@@ -6,7 +6,7 @@ body {
   background-color: #444!important;
 }
 
-h1,h3{
+h1,h3, .repo{
 	color:green !important;
 	font-family: 'Bungee', cursive !important;
 }
@@ -19,4 +19,7 @@ ol,p{
 p{
 	font-weight: bold;
 	color:black;
+}
+a{
+	text-decoration: none !important;
 }
