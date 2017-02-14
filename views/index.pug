@@ -1,27 +1,27 @@
 html
-	head
-		title Timestamp Microservice
-		style
-			include css/style.css
-			include css/bootstrap.min.css
+  head
+    title Timestamp Microservice
+    style
+      include css/style.css
+      include css/bootstrap.min.css
+    meta(name="viewport" content="width=device-width, initial-scale=1")
 
-	body(class='text-center')
-		div(class='page-header')
-			h1 Timestamp Microservice
-		h3 User Stories:
-		ol(class='well')
-			li I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016)
-			li If it does, it returns both the Unix timestamp and the natural language form of that date.
-			li If it does not contain a date or Unix timestamp, it returns null for those properties.
 
-		h3 Example usage:
-		p(class='well') 
-			|https://timestamp-microservice-makkbit.herokuapp.com/December%2015,%202015<br>https://timestamp-microservice-makkbit.herokuapp.com/1450137600
-		h3 Example output:
-		p(class='well') 
-			|{ "unix": 1450137600, "natural": "December 15, 2015" }
-		a(class='repo' href="https://github.com/makkBit/Timestamp-Microservice-makkBit", target="_blank") github repo
-		br
-		br
-		p made by
-			a(href="https://twitter.com/makk_bit", target="_blank")  mahak
+
+  body(class='text-center')
+  #box1.box.blurred-bg(class='text-center')
+    .content
+      h3 Timestamp Microservice
+      blockquote(class="bscallout") Pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date. If it does, it returns both the Unix timestamp and the natural language form of that date. If it does not contain a date or Unix timestamp, it returns null in json response.
+
+      h4 Example usage:
+      p(class='well') 
+        |https://timestamp-microservice-makkbit.herokuapp.com/December%2015,%202015<br>https://timestamp-microservice-makkbit.herokuapp.com/1450137600
+      h4 Sample Output:
+      p(class='well') 
+        |{ "unix": 1450137600, "natural": "December 15, 2015" }
+
+      a(class='repo' href="https://github.com/makkBit/Timestamp-Microservice-makkBit", target="_blank") github repo
+      br
+      p made by
+        a(href="https://twitter.com/makk_bit", target="_blank")  mahak
